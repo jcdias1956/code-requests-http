@@ -5,12 +5,12 @@
       "nome": "Angular"
     },
     {
-      "nome": "Java",
-      "id": 2
+      "id": 2,
+      "nome": "Java"
     },
     {
-      "nome": "Material",
-      "id": 3
+      "id": 3,
+      "nome": "Material"
     },
     {
       "nome": "Material 2",
@@ -35,14 +35,6 @@
     {
       "id": 9,
       "nome": "Material 7"
-    },
-    {
-      "id": 10,
-      "nome": "Material 88888"
-    },
-    {
-      "id": 11,
-      "nome": "Material 9"
     }
   ]
 }
