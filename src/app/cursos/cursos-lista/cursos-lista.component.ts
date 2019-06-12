@@ -1,18 +1,19 @@
-import { Router, ActivatedRoute } from "@angular/router";
-import { AlertModalService } from "./../../shared/alert-modal.service";
-import { AlertModalComponent } from "./../../shared/alert-modal/alert-modal.component";
-import { Observable, Subject, EMPTY } from "rxjs";
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { CursosService } from "../cursos.service";
-import { Curso } from "./curso";
-import { catchError, switchMap, take } from "rxjs/operators";
-import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
-import { DomElementSchemaRegistry } from "@angular/compiler";
+import { Cursos2Service } from './../cursos2.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AlertModalService } from './../../shared/alert-modal.service';
+import { AlertModalComponent } from './../../shared/alert-modal/alert-modal.component';
+import { Observable, Subject, EMPTY } from 'rxjs';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CursosService } from '../cursos.service';
+import { Curso } from './curso';
+import { catchError, switchMap, take } from 'rxjs/operators';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { DomElementSchemaRegistry } from '@angular/compiler';
 
 @Component({
-  selector: "app-cursos-lista",
-  templateUrl: "./cursos-lista.component.html",
-  styleUrls: ["./cursos-lista.component.scss"],
+  selector: 'app-cursos-lista',
+  templateUrl: './cursos-lista.component.html',
+  styleUrls: ['./cursos-lista.component.scss'],
   preserveWhitespaces: true
 })
 export class CursosListaComponent implements OnInit {
@@ -21,7 +22,7 @@ export class CursosListaComponent implements OnInit {
   // bsModalRef: BsModalRef;
 
   deleteModalRef: BsModalRef;
-  @ViewChild("deleteModal") deleteModal;
+  @ViewChild('deleteModal') deleteModal;
 
   cursos$: Observable<Curso[]>;
   error$ = new Subject<boolean>();
@@ -29,7 +30,7 @@ export class CursosListaComponent implements OnInit {
   cursoSelecionado: Curso;
 
   constructor(
-    private service: CursosService,
+    private service: Cursos2Service,
     private modalService: BsModalService,
     private alertService: AlertModalService,
     private router: Router,
@@ -81,7 +82,7 @@ export class CursosListaComponent implements OnInit {
 
   onDelete(curso) {
     this.cursoSelecionado = curso;
-    //this.deleteModalRef = this.modalService.show(this.deleteModal, {class: 'modal-sm'});
+    // this.deleteModalRef = this.modalService.show(this.deleteModal, {class: 'modal-sm'});
     const result$ = this.alertService.showConfirm('Confirmacao', 'Tem certeza que deseja remover esse curso?');
     result$.asObservable()
     .pipe(
