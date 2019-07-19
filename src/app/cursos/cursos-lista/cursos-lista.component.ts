@@ -22,7 +22,7 @@ export class CursosListaComponent implements OnInit {
   // bsModalRef: BsModalRef;
 
   deleteModalRef: BsModalRef;
-  @ViewChild('deleteModal') deleteModal;
+  @ViewChild('deleteModal', {static: false}) deleteModal;
 
   cursos$: Observable<Curso[]>;
   error$ = new Subject<boolean>();
