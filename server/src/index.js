@@ -20,6 +20,14 @@ app.post('/uploads', multiPartMiddleware, (req, res) => {
   res.json( {message: files} );
 });
 
+app.get('/downloadExcel', (req, res) => {
+  res.download('./uploads/e.xlsx')
+});
+
+app.get('/downloadPDF', (req, res) => {
+  res.download('./uploads/p.pdf')
+});
+
 app.use((err, req, res, nest) => res.json( {error: err.message} ));
 
 app.listen(8000, () => {

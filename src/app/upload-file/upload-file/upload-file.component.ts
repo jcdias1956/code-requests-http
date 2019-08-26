@@ -56,4 +56,18 @@ export class UploadFileComponent implements OnInit {
         // });
     }
   }
+
+  onDownloadExcel() {
+    this.service.download( environment.BASE_URL + '/downloadExcel')
+    .subscribe((res: any) => {
+      this.service.handleFile(res, 'e.xlsx');
+    });
+  }
+
+  onDownloadPDF() {
+    this.service.download( environment.BASE_URL + '/downloadPDF')
+    .subscribe((res: any) => {
+      this.service.handleFile(res, 'p.pdf');
+    });
+  }
 }
